@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <script src="https://unpkg.com/htmlincludejs"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+    </div>
+    
+
+
+  </div>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Featured Image:</h3>
+        <img src="{{ marsnews.main_img }}" , width="700" height="400", alt="Mars">
+      </div>
+      <div class="col-md-4">
+        <h2>Mars Facts:</h3>
+        <table border="1" class="dataframe">
+          <table class="table table-success table-striped">
+            <thead>
+              <tr style="text-align: right;">
+                <th></th>
+                <th>Description</th>
+                <th>Facts</th>
+              </tr>
+            </thead>
+            <tbody>
+  
+                <tr>
+                  <th>1</th>
+                  <td>Diameter:</td>
+                  <td>6,779 km</td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td>Mass:</td>
+                  <td>6.39 × 10^23 kg</td>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <td>Moons:</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <th>4</th>
+                  <td>Distance from Sun:</td>
+                  <td>227,943,824 km</td>
+                </tr>
+                <tr>
+                  <th>5</th>
+                  <td>Length of Year:</td>
+                  <td>687 Earth days</td>
+                </tr>
+                <tr>
+                  <th>6</th>
+                  <td>Temperature:</td>
+                  <td>-87 to -5 °C</td>
+                </tr>
+              
+            </tbody>
+          </table>
+        </table>
+
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Latest Mars News</h2>
+        <h3>{{ marsnews.main_title }}</h3>
+        <h4>{{ marsnews.main_art }}</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2>Mars Hemispeheres:</h2>
+        
+          {% for dict1 in marsnews.mars_hem %}
+            <div class="col-md-3">
+            
+              <div class="card" style="width: 18rem;">
+
+                <img class="img-thumbnail" src= "{{marsnews.mars_hem.get(dict1)}}" width="200" height="200" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">{{dict1}}</p>
+                </div>
+           
+              </div>
+            </div>
+          {% endfor %}
+
+        
+    </div>
+
+     
+  </div>
+
+  </div>
+</body>
+
+</html>
