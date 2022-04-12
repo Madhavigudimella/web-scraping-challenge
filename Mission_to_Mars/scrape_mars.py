@@ -42,14 +42,19 @@ def scrape():
             news_p = article.find(class_='article_teaser_body').text
             n_title.append(news_title)
             n_desc.append(news_p)
-        lat_title = n_title[0]
-        lat_art = n_desc[0]
+        try:
+            lat_title = n_title[0]
+            lat_art = n_desc[0]
+          
+        except:
+            print(n_title)
+
     
 #latest_news = pd.DataFrame({"Title": lat_title, "Article": lat_art})
 #latest_news
 
-    print(lat_title)
-    print(lat_art)
+    #print(lat_title)
+   # print(lat_art)
 
         
         
